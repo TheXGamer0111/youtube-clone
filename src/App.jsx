@@ -11,13 +11,17 @@ function App() {
   const { loading } = useAuth();
   return (
     <div>
-      {loading && <Loading />}
-      <Navbar />
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/search/:searchQuery" element={<Search />} />
-        <Route path="/video/:id" element={<PlayingVideo />} />
-      </Routes>
+      {loading ? <Loading /> : (
+        <div>
+     
+        <Navbar />
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/search/:searchQuery" element={<Search />} />
+          <Route path="/video/:id" element={<PlayingVideo />} />
+        </Routes>
+      </div>
+      )}
     </div>
   );
 }

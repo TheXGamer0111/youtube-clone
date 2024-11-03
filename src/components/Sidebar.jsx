@@ -28,249 +28,222 @@ import { CiFlag1 } from "react-icons/ci";
 import { CiCircleQuestion } from "react-icons/ci";
 import { BiHelpCircle } from "react-icons/bi";
 import { MdOutlineFeedback } from "react-icons/md";
+import { useUtils } from "./UtilsContext";
 
 
 function Sidebar() {
-  const sidebarItems = [
-    {
-      id: 1,
-      name: "Home",
-      icon: <GoHome />,
-    },
-    {
-      id: 2,
-      name: "Shorts",
-      icon: <SiYoutubeshorts />,
-    },
-    {
-      id: 3,
-      name: "Subscriptions",
-      icon: <MdOutlineSubscriptions />,
-    },
-    {
-      id: 4,
-      name: "YouTube Music",
-      icon: <SiYoutubemusic />,
-    },
-  ];
 
-  const sidebarItems2 = [
-    {
-      id: 1,
-      name: "History",
-      icon: <MdHistory />,
-    },
-    {
-      id: 2,
-      name: "Playlists",
-      icon: <MdPlaylistAdd />,
-    },
-    {
-      id: 3,
-      name: "Your Videos",
-      icon: <BiVideo />,
-    },
-    {
-      id: 4,
-      name: "Your Courses",
-      icon: <RiLightbulbLine />,
-    },
-    {
-      id: 5,
-      name: "Watch Later",
-      icon: <MdWatchLater />,
-    },
-    {
-      id: 6,
-      name: "Liked Videos",
-      icon: <GiLinkedRings />,
-    },
-    {
-      id: 7,
-      name: "Downloads",
-      icon: <MdDownload />,
-    },
-  ];
+  const {isSidebar, setIsSidebar, mobileShow, setMobileShow} = useUtils();
 
-  const sidebarItems3 = [
+  const allSidebarItems = [
     {
-      id: 1,
-      name: "Trending",
-      icon: <BsFire />,
+      groupName: "Home",
+      groupItems: [
+        {
+          id: 1,
+          name: "Home",
+          icon: <GoHome />,
+        },
+        {
+          id: 2,
+          name: "Shorts",
+          icon: <SiYoutubeshorts />,
+        },
+        {
+          id: 3,
+          name: "Subscriptions",
+          icon: <MdOutlineSubscriptions />,
+        },
+        {
+          id: 4,
+          name: "YouTube Music",
+          icon: <SiYoutubemusic />,
+        },
+      ]
     },
     {
-      id: 2,
-      name: "Shoping",
-      icon: <HiOutlineShoppingBag />,
+      groupName: "You",
+      groupItems: [
+        {
+          id: 1,
+          name: "History",
+          icon: <MdHistory />,
+        },
+        {
+          id: 2,
+          name: "Playlists",
+          icon: <MdPlaylistAdd />,
+        },
+        {
+          id: 3,
+          name: "Your Videos",
+          icon: <BiVideo />,
+        },
+        {
+          id: 4,
+          name: "Your Courses",
+          icon: <RiLightbulbLine />,
+        },
+        {
+          id: 5,
+          name: "Watch Later",
+          icon: <MdWatchLater />,
+        },
+        {
+          id: 6,
+          name: "Liked Videos",
+          icon: <GiLinkedRings />,
+        },
+        {
+          id: 7,
+          name: "Downloads",
+          icon: <MdDownload />,
+        },
+      ]
     },
     {
-      id: 3,
-      name: "Music",
-      icon: <BiMusic />,
+      groupName: "Explore",
+      groupItems: [
+        {
+          id: 1,
+          name: "Trending",
+          icon: <BsFire />,
+        },
+        {
+          id: 2,
+          name: "Shoping",
+          icon: <HiOutlineShoppingBag />,
+        },
+        {
+          id: 3,
+          name: "Music",
+          icon: <BiMusic />,
+        },
+        {
+          id: 4,
+          name: "Films",
+          icon: <BiFilm />,
+        },
+        {
+          id: 5,
+          name: "Live",
+          icon: <CiStreamOn />,
+        },
+        {
+          id: 6,
+          name: "Gaming",
+          icon: <SiYoutubegaming />,
+        },
+        {
+          id: 7,
+          name: "News",
+          icon: <MdOutlineNewspaper />,
+        },
+        {
+          id: 8,
+          name: "Sports",
+          icon: <TfiCup />,
+        },
+        {
+          id: 9,
+          name: "Courses",
+          icon: <RiLightbulbLine />,
+        },
+        {
+          id: 10,
+          name: "Fashion & beauty",
+          icon: <MdDownload />,
+        },
+        {
+          id: 11,
+          name: "Podcasts",
+          icon: <BiPodcast />,
+        },
+      ]
     },
     {
-      id: 4,
-      name: "Films",
-      icon: <BiFilm />,
+      groupName: "More from YouTube",
+      groupItems: [
+        {
+          id: 1,
+          name: "YouTube Studio",
+          icon: <SiYoutubestudio />,
+        },
+        {
+          id: 2,
+          name: "YouTube Music",
+          icon: <SiYoutubemusic />,
+        },
+        {
+          id: 3,
+          name: "YouTube Kids",
+          icon: <SiYoutubekids />,
+        },
+      ]
     },
     {
-      id: 5,
-      name: "Live",
-      icon: <CiStreamOn />,
-    },
-    {
-      id: 6,
-      name: "Gaming",
-      icon: <SiYoutubegaming />,
-    },
-    {
-      id: 7,
-      name: "News",
-      icon: <MdOutlineNewspaper />,
-    },
-    {
-      id: 8,
-      name: "Sports",
-      icon: <TfiCup />,
-    },
-    {
-      id: 9,
-      name: "Courses",
-      icon: <RiLightbulbLine />,
-    },
-    {
-      id: 10,
-      name: "Fashion & beauty",
-      icon: <MdDownload />,
-    },
-    {
-      id: 11,
-      name: "Podcasts",
-      icon: <BiPodcast />,
+      groupName: "Settings",
+      groupItems: [
+        {
+          id: 1,
+          name: "Setting",
+          icon: <CiSettings />,
+        },
+        {
+          id: 2,
+          name: "Report history",
+          icon: <CiFlag1 />,
+        },
+        {
+          id: 3,
+          name: "Help",
+          icon: <BiHelpCircle />,
+        },
+        {
+          id: 4,
+          name: "Send feedback",
+          icon: <MdOutlineFeedback />,
+        },
+      ]
     },
   ];
-
-  const sidebarItems4 = [
-    {
-      id: 1,
-      name: "YouTube Studio",
-      icon: <SiYoutubestudio />,
-    },
-    {
-      id: 2,
-      name: "YouTube Music",
-      icon: <SiYoutubemusic />,
-    },
-    {
-      id: 3,
-      name: "YouTube Kids",
-      icon: <SiYoutubekids />,
-    },
-  ];
-
-  const sidebarItems5 = [
-    {
-      id: 1,
-      name: "Setting",
-      icon: <CiSettings />,
-    },
-    {
-      id: 2,
-      name: "Report history",
-      icon: <CiFlag1 />,
-    },
-    {
-      id: 3,
-      name: "Help",
-      icon: <BiHelpCircle />,
-    },
-    {
-      id: 4,
-      name: "Send feedback",
-      icon: <MdOutlineFeedback />,
-    },
-  ];
+  
+  const ModelOverlay = () => {
+    return (
+      <div className="flex fixed top-0 bottom-0 left-0 right-0 bg-black opacity-50 z-30"
+      onClick={() => setMobileShow(!mobileShow)}
+      ></div>
+    )
+  }
 
   return (
-    <div className="px-6 w-[26%] h-[calc(100vh-5.625rem)] overflow-y-scroll overflow-x-hidden">
+    <>
+      <div className=
+      {`${mobileShow ? "fixed top-0 bottom-0 left-0 transition-all duration-300 bg-white z-40 h-screen w-[70%] sm:w-[30%]"
+       : "hidden h-[calc(100vh-6.625rem)] w-[18%]"} 
+       xl:static xl:block xl:w-[22%] px-2 lg:px-6 overflow-y-scroll overflow-x-hidden scrollbar-thin`}>
       {/* Home */}
       <div className="space-y-3 items-center">
-        {sidebarItems.map((item) => {
+        {allSidebarItems.map((group,index) => {
           return (
-            <div key={item.id} className="flex items-center space-x-6 hover:bg-gray-300 rounded-xl p-1">
-              <div className="text-xl cursor-pointer">{item.icon}</div>
-              <span className="cursor-pointer">{item.name}</span>
+            <div className="mb-5" key={index}>
+              <h1 className="font-bold">
+                {group.groupName}
+              </h1>
+              {group.groupItems.map((item, index) => (
+                <div key={index} className="flex items-center space-x-6 my-3 hover:bg-gray-300 rounded-xl p-1">
+                <div className="text-sm cursor-pointer">{item.icon}</div>
+                <span className="text-sm cursor-pointer">{item.name}</span>
+              </div>
+              ))}
             </div>
           );
         })}
       </div>
       <br />
       <hr />
-      {/* You */}
-      <div className="mt-4 space-y-3 items-center">
-        <div className="flex items-center space-x-2 cursor-pointer rounded-xl p-1 hover:bg-gray-300 duration-200">
-          <h2 className="">You</h2>
-          <FaChevronRight size={"12px"} className="mt-1" />
-        </div>
-        {sidebarItems2.map((item) => {
-          return (
-            <div key={item.id} className="flex items-center space-x-6 hover:bg-gray-300 rounded-xl p-1">
-              <div className="text-xl cursor-pointer">{item.icon}</div>
-              <span className="cursor-pointer">{item.name}</span>
-            </div>
-          );
-        })}
-      </div>
+      
       <br />
-      <hr />
-
-      {/* Explore */}
-      <div className="mt-4 space-y-3 items-center">
-        <div className="items-center space-x-2">
-          <h1 className="font-semibold">Explore</h1>
-        </div>
-        {sidebarItems3.map((item) => {
-          return (
-            <div key={item.id} className="flex items-center space-x-6 hover:bg-gray-300 rounded-xl p-1">
-              <div className="text-xl cursor-pointer">{item.icon}</div>
-              <span className="cursor-pointer">{item.name}</span>
-            </div>
-          );
-        })}
-      </div>
-      <br />
-      <hr />
-
-      {/* More from YouTube */}
-      <div className="mt-4 space-y-3 items-center">
-        <div className="items-center space-x-2">
-          <h1 className="font-semibold">More from YouTube</h1>
-        </div>
-        {sidebarItems4.map((item) => {
-          return (
-            <div key={item.id} className="flex items-center space-x-6 hover:bg-gray-300 rounded-xl p-1">
-              <div className="text-xl cursor-pointer text-red-500">{item.icon}</div>
-              <span className="cursor-pointer">{item.name}</span>
-            </div>
-          );
-        })}
-      </div>
-      <br />
-      <hr />
-
-      {/* Setting */}
-      <div className="mt-4 space-y-3 items-center">
-        {sidebarItems5.map((item) => {
-          return (
-            <div key={item.id} className="flex items-center space-x-6 hover:bg-gray-300 rounded-xl p-1">
-              <div className="text-2xl cursor-pointer">{item.icon}</div>
-              <span className="cursor-pointer">{item.name}</span>
-            </div>
-          );
-        })}
-      </div>
-      <br />
-      <hr />
       <span className="text-xs font-semibold text-gray-600">
         <p>About Press Copyright<br/>Contact us Creator Advertise<br />Developers</p>
       <p className="mt-3">Terms Privacy Policy & Safety<br />How YouTube works <br /> Test new features</p>
@@ -278,6 +251,10 @@ function Sidebar() {
       <br />
       <p className="text-xs font-semibold">© 2024 Google LLC</p>
     </div>
+
+    {mobileShow ? <ModelOverlay /> : null}
+    </>
+  
   );
 }
 
